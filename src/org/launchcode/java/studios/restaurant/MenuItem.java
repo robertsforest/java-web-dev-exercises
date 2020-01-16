@@ -1,5 +1,7 @@
 package org.launchcode.java.studios.restaurant;
 
+import java.util.Objects;
+
 public class MenuItem {
     private int price;
     private String description;
@@ -55,7 +57,16 @@ public class MenuItem {
         isNew = aNew;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MenuItem menuItem = (MenuItem) o;
+        return name.equals(menuItem.name);
+    }
 
-
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 }
